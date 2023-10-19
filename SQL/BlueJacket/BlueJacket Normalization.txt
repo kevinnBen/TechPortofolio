@@ -1,0 +1,81 @@
+Sales Transaction
+
+UNF:
+Metroland ( SalesID, SalesDate, SalesQuantity, CustomerID, CustomerName, CustomerGender, 
+CustomerAddress,StaffID, StaffName, StaffGender, StaffEmail, StaffPhone, StaffSalary,
+BranchNo, BranchName, ToysID, PurchasePrice, SalesPrice, Stock, BrandID, BrandName, 
+TypeID, TypeName, PaymentID, PaymentType )
+
+
+1NF:
+Metroland ( SalesID, SalesDate, SalesQuantity, CustomerID, CustomerName, CustomerGender, 
+CustomerAddress,StaffID, StaffName, StaffGender, StaffEmail, StaffPhone, StaffSalary,
+BranchNo, BranchName, ToysID, PurchasePrice, SalesPrice, Stock, BrandID, BrandName, 
+TypeID, TypeName, PaymentID, PaymentType )
+
+2NF:
+SalesHeader ( SalesID, SalesDate, CustomerID, CustomerName, CustomerGender, CustomerAddress,
+CustomerPhone, StaffID, StaffName, StaffGender, StaffEmail, StaffPhone, StaffSalary, 
+BranchNo, BranchName, PaymentID, PaymentType )
+
+SalesDetail ( SalesID, ToysID, SalesQuantity )
+
+MsToys ( ToysID, PurchasePrice, SalesPrice, Stock, BrandID, BrandName, TypeID, TypeName )
+
+3NF:
+SalesHeader ( SalesID, SalesDate, CustomerID, StaffID, PaymentID )
+SalesDetail ( SalesID, ToysID, SalesQuantity )
+MsToys ( ToysID, PurchasePrice, SalesPrice, Stock )
+MsBrand ( BrandID, TypeID, BrandName )
+MsType ( TypeID, TypeName ) 
+MsCustomer ( CustomerID, CustomerName, CustomerGender, CustomerAddress,
+CustomerPhone )
+MsStaff ( StaffID, StaffName, StaffGender, StaffEmail, StaffPhone, 
+StaffSalary, BranchNo )
+MsBranch ( BranchNo, BranchName )
+MsPayment ( PaymentID, PaymentType )
+
+
+Purchase Transaction
+
+UNF:
+
+1NF: 
+Metroland ( PurchaseID, PurchaseDate, SupplierID, SupplierName, SupplierEmail, SupplierPhone,
+SupplierAddress, StaffID, StaffName, StaffGender, StaffEmail, StaffPhone, StaffSalary,
+BranchNo, BranchName, PurchaseQuantity, ToysID, PurchasePrice, SalesPrice, Stock, BrandID, 
+BrandName, TypeID, TypeName )
+
+2NF:
+PurchaseHeader ( PurchaseID, PurchaseDate, SupplierID, SupplierName, SupplierEmail, 
+SupplierPhone, SupplierAddress, StaffID, StaffName, StaffGender, StaffEmail, StaffPhone, 
+StaffSalary,BranchNo, BranchName )
+
+PurchaseDetail ( PurchaseID, ToysID, PurchaseQuantity )
+
+MsToys ( ToysID, PurchasePrice, SalesPrice, Stock, BrandID, BrandName, TypeID, TypeName )
+
+3NF:
+PurchaseHeader ( PurchaseID, PurchaseDate, SupplierID, StaffID )
+PurchaseDetail ( PurchaseID, ToysID, PurchaseQuantity )
+MsToys ( ToysID, PurchasePrice, SalesPrice, Stock )
+MsBrand ( BrandID, TypeID, BrandName )
+MsType ( TypeID, TypeName ) 
+MsSupplier ( SupplierID, SupplierName, SupplierEmail, SupplierPhone, SupplierAddress )
+MsStaff ( StaffID, StaffName, StaffGender, StaffEmail, StaffPhone, StaffSalary, BranchNo )
+MsBranch ( BranchNo, BranchName )
+
+3NF Gabungan : 
+PurchaseHeader ( PurchaseID, PurchaseDate, SupplierID, StaffID )
+PurchaseDetail ( PurchaseID, ToysID, PurchaseQuantity )
+SalesHeader ( SalesID, SalesDate, CustomerID, StaffID, PaymentID )
+SalesDetail ( SalesID, ToysID, SalesQuantity )
+MsToys ( ToysID, PurchasePrice, SalesPrice, Stock )
+MsBrand ( BrandID, TypeID, BrandName )
+MsType ( TypeID, TypeName ) 
+MsSupplier ( SupplierID, SupplierName, SupplierEmail, SupplierPhone, SupplierAddress )
+MsStaff ( StaffID, StaffName, StaffGender, StaffEmail, StaffPhone, StaffSalary, BranchNo )
+MsBranch ( BranchNo, BranchName )
+MsCustomer ( CustomerID, CustomerName, CustomerGender, CustomerAddress,
+CustomerPhone )
+MsPayment ( PaymentID, PaymentType )
